@@ -1,0 +1,23 @@
+version: "3"
+
+volumes: 
+    postgresql-volume: 
+
+services:
+  mysite:
+        depends_on: 
+           - db
+        build: .
+        ports: 
+           - "5000:5000"
+        volumes:
+           - .:/mysite
+           - ./static:/static
+           - ./media:/media
+        command: ./entrypoint.sh
+  db:
+      image: postgres
+      volumes:
+         - postgresql-volume:/var/lib/postgresql/data
+      ports:
+         - "5435:5432"
