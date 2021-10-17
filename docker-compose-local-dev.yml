@@ -3,7 +3,7 @@ version: "3"
 services:
   mysite:
     ports:
-      - "5000:5000" # we'll use port 5000 for django
+      - "5000:8000" # we'll use port 5000 for django
     build: .
     environment:
       - DJANGO_ENV=development

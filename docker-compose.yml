@@ -9,7 +9,7 @@ services:
       - db
     build: .
     ports:
-      - "5000:5000" # we'll use port 5000 for django
+      - "8000:8000" # we'll use port 5000 for django
     volumes:
       - .:/mysite  # djangoapp mounted to docker from current directory
       - ./static:/static # adding static & media file for django
@@ -22,12 +22,14 @@ services:
       - postgresql-volume:/var/lib/postgresql/data # avoid data removal when shut docker down we put volume in our local
     ports:
       - "5435:5432"  # pointing port 5435 from our environment to postgre default port 5432 in docker
-  nginx:
-    image: nginx
-    volumes:
-     - ./templates:/etc/nginx/templates
-    ports:
-     - "8080:80"
-    environment:
-      - NGINX_HOST=foobar.com
-      - NGINX_PORT=80
+  # nginx:
+  #   image: nginx
+  #   volumes:
+  #     - .:/mysite  # djangoapp mounted to docker from current directory
+  #     - ./static:/static # adding static & media file for django
+  #     - ./media:/media
+  #   ports:
+  #    - "8080:80"
+  #   environment:
+  #     - NGINX_HOST= localhost
+  #     - NGINX_PORT=80
