@@ -19,6 +19,6 @@ from nitesh.views import home
 from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('9810478707/', admin.site.urls),
     path('', home),
 ] + static(settings.STATIC_URL,document_root = settings.STATIC_ROOT)
